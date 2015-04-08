@@ -3,6 +3,9 @@
 
     <string name="hello_world">Aloha kakou!</string>
     <string name="action_settings">Settings</string>
+    <string name="main_title">Todo App</string>
+    <string name="bt_add">Add</string>
+    <string name="et_enter_items_hint">Enter items...</string>
 </resources>
 
 
