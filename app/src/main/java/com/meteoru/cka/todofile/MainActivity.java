@@ -27,9 +27,9 @@ public class MainActivity extends ActionBarActivity {
         // Cast ListView lvItems
         lvItems = (ListView) findViewById(R.id.lvItems);
         items = new ArrayList<String>();
-        // populateArrayItems();
         // Create ArrayAdapter
         aItems = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        // Link Adapter to ListView
         lvItems.setAdapter(aItems);
     }
 
@@ -38,15 +38,6 @@ public class MainActivity extends ActionBarActivity {
         aItems.add(itemText);
         etAddTodo.setText("");
     }
-
-    private void populateArrayItems() {
-        // Create sample data
-        items = new ArrayList<String>();
-        items.add("First Item");
-        items.add("2nd Item");
-        items.add("Third Sample");
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
