@@ -1,10 +1,12 @@
 package com.meteoru.cka.todofile;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -14,18 +16,27 @@ public class MainActivity extends ActionBarActivity {
     private ArrayList<String> items;
     private ArrayAdapter<String> aItems;
     private ListView lvItems;
+    private EditText etAddTodo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Cast EditText etAddTodo
+        etAddTodo = (EditText) findViewById(R.id.etAddTodo);
         // Cast ListView lvItems
         lvItems = (ListView) findViewById(R.id.lvItems);
-        populateArrayItems();
+        items = new ArrayList<String>();
+        // populateArrayItems();
         // Create ArrayAdapter
         aItems = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
         lvItems.setAdapter(aItems);
-        aItems.add("Fourth Item");
+    }
+
+    public void onAddItem(View view) {
+        String itemText = etAddTodo.getText().toString();
+        aItems.add(itemText);
+        etAddTodo.setText("");
     }
 
     private void populateArrayItems() {
