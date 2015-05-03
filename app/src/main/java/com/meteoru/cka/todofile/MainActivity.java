@@ -21,16 +21,19 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         // Cast ListView lvItems
         lvItems = (ListView) findViewById(R.id.lvItems);
+        populateArrayItems();
+        // Create ArrayAdapter
+        aItems = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        lvItems.setAdapter(aItems);
+        aItems.add("Fourth Item");
+    }
+
+    private void populateArrayItems() {
         // Create sample data
         items = new ArrayList<String>();
         items.add("First Item");
         items.add("2nd Item");
         items.add("Third Sample");
-        // Create ArrayAdapter
-        aItems = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
-        lvItems.setAdapter(aItems);
-
-
     }
 
 
