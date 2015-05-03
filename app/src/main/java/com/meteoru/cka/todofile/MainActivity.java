@@ -58,6 +58,7 @@ public class MainActivity extends ActionBarActivity {
     private void readFiles() {
         File filesDir = getFilesDir();
         File todoFile = new File(getFilesDir(), "todo.txt");
+
         items = new ArrayList<String>();
 
     }
