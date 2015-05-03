@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -31,12 +32,25 @@ public class MainActivity extends ActionBarActivity {
         aItems = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
         // Link Adapter to ListView
         lvItems.setAdapter(aItems);
+        setupItemLongClickListener();
     }
 
     public void onAddItem(View view) {
         String itemText = etAddTodo.getText().toString();
         aItems.add(itemText);
         etAddTodo.setText("");
+    }
+
+    // Setup Item LongClickListener to delete items
+    public void setupItemLongClickListener() {
+        lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
+                items.remove(position);
+                aItems.notifyDataSetChanged();
+                return true;
+            }
+        });
     }
 
     @Override
