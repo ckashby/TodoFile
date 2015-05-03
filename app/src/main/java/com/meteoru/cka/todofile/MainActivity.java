@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import java.io.File;
 import java.util.ArrayList;
 
 
@@ -52,6 +53,13 @@ public class MainActivity extends ActionBarActivity {
                 return true;
             }
         });
+    }
+
+    private void readFiles() {
+        File filesDir = getFilesDir();
+        File todoFile = new File(getFilesDir(), "todo.txt");
+        items = new ArrayList<String>();
+
     }
 
     @Override
