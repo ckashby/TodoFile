@@ -37,7 +37,8 @@ public class MainActivity extends ActionBarActivity {
 
     public void onAddItem(View view) {
         String itemText = etAddTodo.getText().toString();
-        aItems.add(itemText);
+        items.add(itemText);
+        aItems.notifyDataSetChanged();
         etAddTodo.setText("");
     }
 
